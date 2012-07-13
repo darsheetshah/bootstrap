@@ -6,6 +6,7 @@
 <link href="twitter-bootstrap/docs/assets/css/bootstrap.css" rel="stylesheet"> 
 </head>
 <body>
+<div class="container-fluid">
 <table class="table table-striped table-bordered">
 <thead>
 <tr>
@@ -26,12 +27,27 @@ mega volt
 </tr>
 </thead>
 <tbody>
+<div class="accordion" id="acc2">
+
 <tr>
 <td>
-transmission outage
+<div class="accordion-group">
+<div class="accordian-heading">
+<a class="accordian-toggle" data-toggle="collapse" data-parent="acc2" href="#collapseOne">
++ 
+</a>
+This is the summary of outage.
+</div>
+
+<div id="collapseOne" class="accordian-body collapse" style="height: 0px;">
+<div class="accordian-inner">
+Outage detais 1
+</div>
+</div>
+</div>
 </td>
 <td>
-columbus west
+tcolumbus west
 </td>
 <td>
 </td>
@@ -39,52 +55,52 @@ columbus west
 500
 </td>
 <td>
-edit delete
+qedit delete
 </td>
 </tr>
 <tr>
 <td>
-transmission outage
+rtransmission outage
 </td>
 <td>
-columbus west
-</td>
-<td>
-</td>
-<td>
-500
-</td>
-<td>
-edit delete
-</td>
-</tr>
-<tr>
-<td>
-transmission outage
-</td>
-<td>
-columbus west
+qcolumbus west
 </td>
 <td>
 </td>
 <td>
-500
+4500
 </td>
 <td>
-edit delete
+qdit delete
 </td>
 </tr>
 <tr>
 <td>
-transmission outage
+vtransmission outage
 </td>
 <td>
-columbus west
+mcolumbus west
 </td>
 <td>
 </td>
 <td>
-500
+5100
+</td>
+<td>
+iedit delete
+</td>
+</tr>
+<tr>
+<td>
+jtransmission outage
+</td>
+<td>
+mcolumbus west
+</td>
+<td>
+</td>
+<td>
+150
 </td>
 <td>
 edit delete
@@ -108,6 +124,10 @@ edit delete
 </tr>
 </tbody>
 </table>
-
-
+<caption> Table showing list of outages </caption>
+</div>
+</div>
+<script type="text/javascript" src="twitter-bootstrap/docs/assets/js/jquery.js"></script>  
+    <script type="text/javascript" src="twitter-bootstrap/docs/assets/js/bootstrap-collapse.js"></script>
 </body>
+</html>
