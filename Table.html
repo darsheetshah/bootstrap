@@ -1,0 +1,188 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Twitter Bootstrap</title> 
+<link href="twitter-bootstrap/docs/assets/css/bootstrap.css" rel="stylesheet"> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js">
+</script>
+<script>
+
+    function scrolify(tblAsJQueryObject, height){
+        var oTbl = tblAsJQueryObject;
+
+        // for very large tables you can remove the four lines below
+        // and wrap the table with <div> in the mark-up and assign
+        // height and overflow property  
+        var oTblDiv = $("<div/>");
+        oTblDiv.css('height', height);
+        oTblDiv.css('overflow','scroll');               
+        oTbl.wrap(oTblDiv);
+
+        // save original width
+        oTbl.attr("data-item-original-width", oTbl.width());
+        oTbl.find('thead tr td').each(function(){
+            $(this).attr("data-item-original-width",$(this).width());
+        }); 
+        oTbl.find('tbody tr:eq(0) td').each(function(){
+            $(this).attr("data-item-original-width",$(this).width());
+        });                 
+
+
+        // clone the original table
+        var newTbl = oTbl.clone();
+
+        // remove table header from original table
+        oTbl.find('thead tr').remove();                 
+        // remove table body from new table
+        newTbl.find('tbody tr').remove();   
+
+        oTbl.parent().parent().prepend(newTbl);
+        newTbl.wrap("<div/>");
+
+        // replace ORIGINAL COLUMN width                
+        newTbl.width(newTbl.attr('data-item-original-width'));
+        newTbl.find('thead tr td').each(function(){
+            $(this).width($(this).attr("data-item-original-width"));
+        });     
+        oTbl.width(oTbl.attr('data-item-original-width'));      
+        oTbl.find('tbody tr:eq(0) td').each(function(){
+            $(this).width($(this).attr("data-item-original-width"));
+        });                 
+    }
+
+    $(document).ready(function(){
+        scrolify($('#tblNeedsScrolling'), 160); // 160 is height
+    });
+
+
+</script>
+</head>
+<body>
+<div class="container-fluid">
+<table class="table table-striped table-bordered" id="tblNeedsScrolling" border="1">
+<thead>
+<tr>
+<th>
+outage type
+</th>
+<th>
+station name
+</th>
+<th>
+edit
+</th>
+<th>
+mega volt
+</th>
+<th>
+blank
+</th>
+</tr>
+</thead>
+<tbody>
+<div class="accordion" id="acc2">
+
+<tr>
+<td>
+<div class="accordion-group">
+<div class="accordian-heading">
+<a class="accordian-toggle" data-toggle="collapse" data-parent="acc2" href="#collapseOne">
++ 
+</a>
+This is the summary of outage.
+</div>
+
+<div id="collapseOne" class="accordian-body collapse" style="height: 0px;">
+<div class="accordian-inner">
+Outage detais 1
+</div>
+</div>
+</div>
+</td>
+<td>
+tcolumbus west
+</td>
+<td>
+</td>
+<td>
+500
+</td>
+<td>
+qedit delete
+</td>
+</tr>
+<tr>
+<td>
+rtransmission outage
+</td>
+<td>
+qcolumbus west
+</td>
+<td>
+</td>
+<td>
+4500
+</td>
+<td>
+qdit delete
+</td>
+</tr>
+<tr>
+<td>
+vtransmission outage
+</td>
+<td>
+mcolumbus west
+</td>
+<td>
+</td>
+<td>
+5100
+</td>
+<td>
+iedit delete
+</td>
+</tr>
+<tr>
+<td>
+jtransmission outage
+</td>
+<td>
+mcolumbus west
+</td>
+<td>
+</td>
+<td>
+150
+</td>
+<td>
+edit delete
+</td>
+</tr>
+<tr>
+<td>
+transmission outage
+</td>
+<td>
+columbus west
+</td>
+<td>
+</td>
+<td>
+500
+</td>
+<td>
+edit delete
+</td>
+</tr>
+</div>
+</tbody>
+</table>
+<caption> Table showing list of outages </caption>
+
+</div>
+<script type="text/javascript" src="twitter-bootstrap/docs/assets/js/jquery.js"></script>  
+<script type="text/javascript" src="twitter-bootstrap/docs/assets/js/bootstrap-collapse.js"></script>
+</body>
+</html>
